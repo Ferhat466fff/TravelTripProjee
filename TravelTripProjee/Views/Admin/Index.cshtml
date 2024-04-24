@@ -1,0 +1,51 @@
+﻿@using TravelTripProjee.Models.Sınıflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*arama yapma*@
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+{
+    <div style="display: flex; align-items: center;">
+        <b style="font-size: 20px; margin-right: 10px;">Aranacak Ürün Adı:</b>
+        @Html.TextBox("parametre", null, new { style = "margin-bottom: 0;" })
+        <input type="submit" value="Ara" class="" />
+    </div>
+}
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>İşlemler</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+
+            <td>
+                <a href="/Admin/BlogSil/@item.ID" class="btn btn-outline-danger"><i class="fa fa-trash"></i>Sil</a>
+                <a href="/Admin/GuncelleBlog/@item.ID" class="btn btn-outline-info"><i class="fa fa-pen"></i>Güncelle</a>
+                <a href="/Blog/Index/" class="btn btn-outline-dark"><i class="fa fa-microscope"></i>Detaylar</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Admin/EkleBlog/" class="btn btn-outline-success">Yeni Blog Ekle</a>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+
+
+
+

@@ -1,0 +1,22 @@
+﻿@model  List<TravelTripProjee.Models.Sınıflar.Blog>
+
+<div class="con-bot">
+    @foreach (var item in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@item.BlogImage"style="width:280px;height:180px" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@item.Baslik</h4>
+                <span class="doller">@item.Tarih.ToString("dd.MM.yyyy")</span>@*Yıl-Ay-Gün*@
+                <p>@item.Aciklama.Substring(0,40)...</p>@*ilk 47 karakter*@
+                <p><a href="/Blog/BlogDetay/@item.ID"><span class="read">Devamını Oku >></span></a></p>
+            </div>
+        </div>
+    }
+    @Html.Action("Partial2", "Default")@*partialın İçine Bir Partial Daha Çağırdık Css Bozuluyodu Çünkü.*@
+
+
+    <div class="clear"></div>
+</div>

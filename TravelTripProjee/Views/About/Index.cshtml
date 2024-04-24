@@ -1,0 +1,27 @@
+﻿@model List<TravelTripProjee.Models.Sınıflar.Hakkimizda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            @foreach (var item in Model)
+            {
+                <img style="width:1000px;height:350px;" src="@item.FotoUrl" alt="" />
+                <p style="font-size:22px;color:black;">
+                    @item.Aciklama
+                    <a href="@Url.Action("Index", "iletisim")" class="btn btn-danger" style="font-size:20px;">İletişime Geç</a>
+                </p>
+
+            }
+            
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,27 @@
+﻿@model TravelTripProjee.Models.Sınıflar.Yorumlar
+@{
+    ViewBag.Title = "GuncelleYorum";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Yorum Güncelleme Sayfası</h3>
+<br />
+<form method="post">
+    
+    @Html.HiddenFor(x => x.ID)
+    <br />
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    <br />
+    <label>Mail Adresi</label>
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    <label>Yorum</label>
+    @Html.TextBoxFor(x => x.Yorum, new { @class = "form-control" })
+    <br />
+ 
+
+    <button class="btn btn-outline-info"><i class="fa fa-pen"></i>Yorum Güncelle</button>
+
+</form>
+

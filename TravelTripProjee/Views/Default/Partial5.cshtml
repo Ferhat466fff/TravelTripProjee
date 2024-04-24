@@ -1,0 +1,15 @@
+﻿@model  List<TravelTripProjee.Models.Sınıflar.Blog>
+
+<div class="box1-left">
+    @foreach (var item in Model)
+    {
+        <div class="bot-img">
+            <img src="@item.BlogImage" style="width:140px;height:80px" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <a href="/Blog/BlogDetay/@item.ID">@item.Baslik</a>
+        </div>
+        <div class="clear"></div>
+    }
+
+</div>

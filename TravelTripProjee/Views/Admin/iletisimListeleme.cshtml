@@ -1,0 +1,32 @@
+﻿@model List<TravelTripProjee.Models.Sınıflar.iletisim>
+@{
+    ViewBag.Title = "iletisimListeleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad Soyad</th>
+        <th>Mail</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+    
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.AdSoyad</td>
+            <td>@item.Mail</td>
+            <td>@item.Konu</td>
+            <td>@item.Mesaj</td>
+        </tr>
+    }
+
+</table>
+

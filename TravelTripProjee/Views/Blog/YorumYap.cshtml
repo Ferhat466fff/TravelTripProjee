@@ -1,0 +1,17 @@
+﻿@model  TravelTripProjee.Models.Sınıflar.Yorumlar
+
+
+<div class="content-form">
+    <h3>Bir Yorum Yapın.</h3>
+   
+    <form method="post">
+       
+        @Html.HiddenFor(x => x.BlogId, new { @class = "form-control", @placeholder = "Id", @Value = ViewBag.dgr })
+        @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @placeholder = "E-Mail" })
+        @Html.TextAreaFor(x => x.Yorum, 5, 1, new { @class = "form-control", @placeholder = "Yorum" })
+        <input type="submit" value="Gönder" />
+    </form>
+    
+    </div>
+
